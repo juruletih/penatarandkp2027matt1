@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Penataran KP2027 Matematik Tingkatan 1</title>
+<style>
+  :root{
+    --bg:#f5f7fb; --card:#ffffff; --text:#1a1d29; --sub:#5a5f73;
+    --accent:#2563eb; --accent2:#7c3aed; --border:#e5e7eb; --shadow:rgba(37,99,235,0.08);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#0f1117; --card:#1b1e2a; --text:#eef0f6; --sub:#a3a8bf; --border:#2c3040; --shadow:rgba(0,0,0,0.3); }
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--bg); color:var(--text); font-family:-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+  .hero{
+    background:linear-gradient(135deg, var(--accent), var(--accent2));
+    color:#fff; padding:48px 20px 60px; text-align:center;
+  }
+  .hero h1{font-size:1.7rem; margin-bottom:8px;}
+  .hero p{opacity:0.9; font-size:0.95rem; max-width:480px; margin:0 auto;}
+  .stats{display:flex; justify-content:center; gap:32px; margin-top:24px; flex-wrap:wrap;}
+  .stat{text-align:center;}
+  .stat .n{font-size:1.6rem; font-weight:800;}
+  .stat .l{font-size:0.75rem; opacity:0.85; text-transform:uppercase; letter-spacing:0.05em;}
+
+  .wrap{max-width:760px; margin:-32px auto 40px; padding:0 20px;}
+  .sectiontitle{font-size:0.85rem; font-weight:700; color:var(--sub); text-transform:uppercase; letter-spacing:0.05em; margin:24px 0 12px 4px;}
+
+  .card{
+    background:var(--card); border:1px solid var(--border); border-radius:16px;
+    padding:18px 20px; margin-bottom:12px; display:flex; align-items:center; gap:16px;
+    box-shadow:0 2px 8px var(--shadow); transition:transform 0.15s, box-shadow 0.15s;
+  }
+  .card:hover{ transform:translateY(-2px); box-shadow:0 6px 16px var(--shadow); }
+  .iconwrap{
+    width:48px; height:48px; border-radius:12px; flex-shrink:0;
+    display:flex; align-items:center; justify-content:center; font-size:1.5rem;
+    background:linear-gradient(135deg, rgba(37,99,235,0.12), rgba(124,58,237,0.12));
+  }
+  .info{flex:1; min-width:0;}
+  .info .badge{
+    display:inline-block; font-size:0.68rem; font-weight:800; color:var(--accent);
+    background:rgba(37,99,235,0.1); padding:2px 8px; border-radius:6px; margin-bottom:4px;
+    text-transform:uppercase; letter-spacing:0.04em;
+  }
+  .info .title{font-weight:700; font-size:1rem; margin-bottom:2px;}
+  .info .fname{font-size:0.72rem; color:var(--sub); word-break:break-all;}
+  a.dl{
+    padding:9px 16px; border-radius:10px;
+    background:var(--accent); color:#fff; text-decoration:none; font-weight:700; font-size:0.8rem;
+    white-space:nowrap; transition:opacity 0.15s; text-align:center;
+  }
+  a.dl:hover{ opacity:0.85; }
+  a.dl.preview{ background:transparent; border:1.5px solid var(--accent); color:var(--accent); }
+  .btnstack{ display:flex; flex-direction:column; gap:6px; flex-shrink:0; }
+  .status{ text-align:center; color:var(--sub); padding:40px 20px; font-size:0.9rem; }
+  .contribute{
+    margin-top:32px; background:linear-gradient(135deg, rgba(37,99,235,0.06), rgba(124,58,237,0.06));
+    border:1.5px dashed var(--accent); border-radius:16px; padding:24px 22px; text-align:center;
+  }
+  .contribute .icon{ font-size:2rem; margin-bottom:8px; }
+  .contribute h3{ font-size:1.05rem; margin-bottom:8px; }
+  .contribute p{ font-size:0.87rem; color:var(--sub); line-height:1.6; max-width:520px; margin:0 auto 16px; }
+  .contribute .steps{
+    display:flex; flex-direction:column; gap:8px; text-align:left; max-width:420px; margin:0 auto 18px;
+    font-size:0.83rem;
+  }
+  .contribute .steps div{ display:flex; gap:10px; align-items:flex-start; }
+  .contribute .steps .n{
+    background:var(--accent); color:#fff; width:20px; height:20px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center; font-size:0.7rem; font-weight:800; flex-shrink:0; margin-top:1px;
+  }
+  .contribute a.cta{
+    display:inline-block; padding:11px 24px; border-radius:10px; background:var(--accent);
+    color:#fff; text-decoration:none; font-weight:700; font-size:0.87rem;
+  }
+    font-size:0.78rem; color:var(--sub); text-align:center; margin-top:28px; line-height:1.6;
+    padding:16px; background:var(--card); border-radius:12px; border:1px solid var(--border);
+  }
+  .footer-note code{ background:var(--bg); padding:2px 6px; border-radius:4px; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <h1>📚 Penataran KP2027 Matematik Tingkatan 1</h1>
+  <p>Pusat bahan digital untuk Jurulatih Utama dan guru — muat turun terus, tiada kebenaran diperlukan.</p>
+  <div class="stats" id="statsRow"></div>
+</div>
+
+<div class="wrap">
+  <div class="sectiontitle">📊 Slaid Penataran</div>
+  <div id="slideList">
+    <div class="status">⏳ Memuatkan senarai slaid...</div>
+  </div>
+
+  <div class="contribute">
+    <div class="icon">🤝</div>
+    <h3>Jemputan Kepada Rakan Jurulatih Utama & Guru</h3>
+    <p>
+      Repositori ini dikongsikan secara terbuka sebagai rujukan bersama untuk penataran
+      KP2027 Matematik Tingkatan 1. Jika anda mempunyai bahan yang dirasakan berkaitan
+      dan bermanfaat — slaid tambahan, nota, contoh aktiviti, atau penambahbaikan —
+      sumbangan anda amat dialu-alukan.
+    </p>
+    <div class="steps">
+      <div><span class="n">1</span> Fork repositori ini ke akaun GitHub anda</div>
+      <div><span class="n">2</span> Tambah/kemas kini bahan dalam fork anda</div>
+      <div><span class="n">3</span> Hantar Pull Request — akan disemak sebelum digabungkan</div>
+    </div>
+    <a class="cta" href="https://github.com/juruletih/penatarandkp2027matt1/fork" target="_blank" rel="noopener">🔀 Fork & Sumbang Bahan</a>
+  </div>
+
+  <div class="footer-note">
+    Senarai ini dijana automatik daripada folder <code>slides/</code> repositori GitHub.<br>
+    Muat naik fail baharu ke folder itu — ia akan terus muncul di sini, tiada perlu ubah halaman ini.
+  </div>
+</div>
+
+<script>
+const OWNER = 'juruletih';
+const REPO = 'penatarandkp2027matt1';
+const FOLDER = ''; // fail terus di root repo
+
+const ICONS = { pptx:'📊', ppt:'📊', pdf:'📄', docx:'📝', doc:'📝', xlsx:'📈', zip:'🗜️' };
+
+function parseFilename(name){
+  const match = name.match(/^SIDANG[_\s]?(\d+)[_\s]+(.+)\.(\w+)$/i);
+  if(match){
+    return {
+      num: parseInt(match[1]),
+      title: match[2].replace(/_/g,' '),
+      ext: match[3].toLowerCase(),
+      label: 'Sidang ' + match[1]
+    };
+  }
+  const parts = name.split('.');
+  const ext = parts.length>1 ? parts.pop().toLowerCase() : '';
+  return { num: 9999, title: parts.join('.').replace(/_/g,' '), ext, label: 'Bahan' };
+}
+
+async function loadSlides(){
+  const listEl = document.getElementById('slideList');
+  const statsEl = document.getElementById('statsRow');
+  try{
+    const apiUrl = FOLDER
+      ? `https://api.github.com/repos/${OWNER}/${REPO}/contents/${FOLDER}`
+      : `https://api.github.com/repos/${OWNER}/${REPO}/contents`;
+    const res = await fetch(apiUrl);
+    if(!res.ok){
+      listEl.innerHTML = `<div class="status">Tidak dapat memuatkan senarai fail. Sila muat semula halaman.</div>`;
+      return;
+    }
+    const files = await res.json();
+    const validFiles = files.filter(f => {
+      if(f.type !== 'file') return false;
+      const ext = f.name.split('.').pop().toLowerCase();
+      return Object.keys(ICONS).includes(ext);
+    });
+    if(validFiles.length === 0){
+      listEl.innerHTML = '<div class="status">Belum ada fail dimuat naik lagi.</div>';
+      return;
+    }
+    const parsed = validFiles.map(f => ({ ...parseFilename(f.name), rawName:f.name, url:f.download_url }));
+    parsed.sort((a,b)=> a.num - b.num || a.title.localeCompare(b.title));
+
+    statsEl.innerHTML = `
+      <div class="stat"><div class="n">${parsed.length}</div><div class="l">Fail Tersedia</div></div>
+      <div class="stat"><div class="n">${parsed.filter(p=>p.num!==9999).length}</div><div class="l">Sidang Rasmi</div></div>
+    `;
+
+    listEl.innerHTML = parsed.map(item => {
+      const canPreview = ['pptx','ppt','docx','doc','xlsx'].includes(item.ext);
+      const previewUrl = `https://view.officeapps.live.com/op/view.aspx?src=${encodeURIComponent(item.url)}`;
+      return `
+      <div class="card">
+        <div class="iconwrap">${ICONS[item.ext] || '📁'}</div>
+        <div class="info">
+          <div class="badge">${item.label}</div>
+          <div class="title">${item.title}</div>
+          <div class="fname">${item.rawName}</div>
+        </div>
+        <div class="btnstack">
+          ${canPreview ? `<a class="dl preview" href="${previewUrl}" target="_blank" rel="noopener">👁 Pratonton</a>` : ''}
+          <a class="dl" href="${item.url}" download>⬇ Muat Turun</a>
+        </div>
+      </div>
+    `;}).join('');
+  } catch(e){
+    listEl.innerHTML = `<div class="status">Ralat memuatkan senarai. Sila muat semula halaman.<br><small>${e.message}</small></div>`;
+  }
+}
+
+loadSlides();
+</script>
+</body>
+</html>
